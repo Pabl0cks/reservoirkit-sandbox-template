@@ -9,6 +9,7 @@ import {
   ReservoirClientActions,
 } from "@reservoir0x/reservoir-kit-client";
 import { constants } from "ethers";
+import CustomTable from './CustomTable';
 
 async function sweepTokens(
   sweepTotal: number | undefined,
@@ -290,6 +291,8 @@ export default function Sweep() {
           <b>Progress:</b> {progressText}
         </div>
       )}
+
+      <CustomTable />
     </>
   );
 }
