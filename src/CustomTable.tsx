@@ -35,11 +35,11 @@ function truncateToTwoDecimals(num: number): number {
 }
 
 function CustomTable() {
-  const { data: listings, isLoading } = useListings();
+  const { listings, loading } = useListings();
 
-  console.log('listings:', listings, 'isLoading:', isLoading); // Add this line
+  console.log('listings:', listings, 'loading:', loading); // Add this line
 
-  if (isLoading || !listings) {
+  if (loading || !listings) {
     return <p>Loading...</p>;
   }
 

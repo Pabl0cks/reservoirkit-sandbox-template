@@ -1,20 +1,30 @@
 // hooks/useListings.js
+
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-const fetchListings = async () => {
-  try {
-    const { data } = await axios.get('/src/api/listings');
-    return data;
-  } catch (error) {
-    console.error('Error fetching listings:', error);
-    throw error;
-  }
-};
 
-export const useListings = (options) => {
-  return useQuery('listings', fetchListings, {
-    refetchInterval: 1000, // Adjust this value to control the refresh rate (in ms)
-    ...options,
-  });
-};
+export function useListings() {
+  const [listings, setListings] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const response = await fetch('http://192.168.0.30:3001/listings');
+        const data = await response.json();
+        setListings(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchListings();
+  }, []);
+
+  return { listings, error, loading };
+}
