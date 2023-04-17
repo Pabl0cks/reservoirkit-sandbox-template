@@ -12,5 +12,7 @@ export interface Listing {
   pricetarget: number;
   alert: string;
   collectionfloor: number;
-  imageUrl?: string;
+  chathook?: string;
 }
+
+

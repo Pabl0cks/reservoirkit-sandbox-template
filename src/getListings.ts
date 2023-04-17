@@ -68,6 +68,17 @@ export type Token = NonNullable<
         };
       };
     };
+    nftalerts: {
+      listdate: string;
+      sellername: string;
+      collectionslug: string;
+      collectionname: string;
+      pricetarget: number;
+      alert: string;
+      collectionfloor: number;
+      link: string;
+      chathook: string;
+    };
   }
 >;
 
