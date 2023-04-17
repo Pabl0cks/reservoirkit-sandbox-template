@@ -36,6 +36,24 @@ async function sweepTokens(
       options.currency = sweepCurrency;
     }
 
+    
+    //force values to debug the API error
+    // if (tokens) {
+    //   tokens.forEach((token) => {
+    //     token.contract = '0xf5de760f2e916647fd766b4ad9e85ff943ce3a2b';
+    //     token.tokenId='2615306'
+    //   });
+    // }
+
+
+
+    console.log('tokens', tokens);
+    console.log('signer', signer);
+    console.log('expectedPrice', sweepTotal);
+    console.log('options', options);
+
+
+
     getClient()
       ?.actions.buyToken({
         tokens: tokens,
@@ -240,13 +258,13 @@ export default function Sweep() {
           <option value={currency?.contract}>{currency?.symbol}</option>
         ))}
       </select>
-
+      {/* 1 - mainnet // 5 - goerli */}
       <button
         disabled={selectedTokens.length === 0}
         onClick={async () => {
-          if (activeChain?.id !== 5) {
+          if (activeChain?.id !== 1) {
             alert(
-              "You are connected to the wrong network. Please use the Goerli test network."
+              "You are connected to the wrong network. Please use the Mainnet network."
             );
             return;
           }

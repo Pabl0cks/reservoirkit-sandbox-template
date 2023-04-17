@@ -1,6 +1,6 @@
 // pages/api/listings.js
 import nextConnect from 'next-connect';
-import { getAllListings } from '../../lib/db';
+import { getAllListings } from '../lib/db';
 
 const handler = nextConnect();
 

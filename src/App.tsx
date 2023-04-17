@@ -11,7 +11,8 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 import Sweep from "./sweep";
 import { createClient } from "@reservoir0x/reservoir-kit-client";
 
-const { chains } = configureChains([chain.goerli], [publicProvider()]);
+//setup mainnet or goerli
+const { chains } = configureChains([chain.mainnet], [publicProvider()]);
 
 const client = createWagmiClient({
   autoConnect: true,
@@ -25,9 +26,9 @@ const client = createWagmiClient({
     }),
   ],
 });
-
+//setup goerli or mainnet URL https://api.reservoir.tools,https://api-goerli.reservoir.tools, https://api-optimism.reservoir.tools
 createClient({
-  apiBase: "https://api-goerli.reservoir.tools",
+  apiBase: "https://api.reservoir.tools",
 });
 
 export default function App() {
