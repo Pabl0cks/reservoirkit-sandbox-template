@@ -79,7 +79,7 @@ export async function getAllListings() {
         alert: listing.alert, // Update with the respective property
         collectionfloor: listing.collectionfloor, // Update with the respective property
         link: listing.link, // Update with the respective property
-        imagepreview: listing.chathook,
+        chathook: listing.chathook,
       },
     })),
   };
