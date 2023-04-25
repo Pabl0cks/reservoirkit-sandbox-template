@@ -35,7 +35,7 @@ export default function App() {
   return (
     <WagmiConfig client={client}>
       <div className="App">
-        <header className="App-header">Sweep Demo</header>
+        <header className="App-header">NFT Alerts FastBuy Demo</header>
         <Sweep />
       </div>
     </WagmiConfig>

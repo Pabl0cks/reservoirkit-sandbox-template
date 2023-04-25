@@ -282,28 +282,28 @@ export default function Sweep() {
         </div>
       )}
 
-      <table className="sweep-list">
+      <table className="sweep-list custom-table">
         <thead>
           <tr>
             <th></th>
             <th>Token Id</th>
             <th>Price</th>
+            <th>Price Target</th>
+            <th>Collection Floor</th>
             <th>Sweep</th>
             <th>Buy Now</th>
             <th>List Date</th>
-            <th>Seller Name</th>
+            <th>Alert</th>
             <th>Collection Slug</th>
             <th>Collection Name</th>
-            <th>Price Target</th>
-            <th>Alert</th>
-            <th>Collection Floor</th>
+            <th>Seller Name</th>
             <th>Link</th>
           </tr>
         </thead>
         <tbody>
           {tokens.map((token, i) => (
             <tr key={i}>
-              <td>
+              <td style={{ width: "50px", padding: "0px" }}>
                 <img
                   src={
                     token.nftalerts.chathook === null ||
@@ -313,7 +313,7 @@ export default function Sweep() {
                       : token.nftalerts.chathook
                   }
                   alt={`NFT ${token.token?.tokenId}`}
-                  style={{ maxHeight: "50px", maxWidth: "50px" }}
+                  style={{ height: "auto", width: "100%" }}
                 />
               </td>
 
@@ -322,6 +322,8 @@ export default function Sweep() {
                 {token.market?.floorAsk?.price?.amount?.decimal}{" "}
                 {token.market?.floorAsk?.price?.currency?.symbol}
               </td>
+              <td>{token.nftalerts.pricetarget.toFixed(3)}</td>
+              <td>{token.nftalerts.collectionfloor}</td>
               <td>
                 <input
                   type="checkbox"
@@ -347,12 +349,10 @@ export default function Sweep() {
                 </button>
               </td>
               <td>{token.nftalerts.listdate}</td>
-              <td>{token.nftalerts.sellername}</td>
+              <td>{token.nftalerts.alert}</td>
               <td>{token.nftalerts.collectionslug}</td>
               <td>{token.nftalerts.collectionname}</td>
-              <td>{token.nftalerts.pricetarget}</td>
-              <td>{token.nftalerts.alert}</td>
-              <td>{token.nftalerts.collectionfloor}</td>
+              <td>{token.nftalerts.sellername}</td>
               <td>
                 <a href={token.nftalerts.link} target="_blank" rel="noreferrer">
                   View on OpenSea
