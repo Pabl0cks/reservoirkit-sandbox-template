@@ -37,7 +37,7 @@ function formatSellerAddress(sellerAddress: string): string {
 }
 
 export async function getAllListings() {
-  const response = await fetch('https://85.251.40.44:3001/listings');
+  const response = await fetch('https://app.getnftalerts.com/listings');
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
