@@ -22,9 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "cp:utils": "mkdir -p ./src/utils && cp -R ../utils/* ./src/utils/",
-    "postinstall": "yarn cp:utils"
+    "eject": "react-scripts eject"
+    //"cp:utils": "mkdir -p ./src/utils && cp -R ../utils/* ./src/utils/",
+    //"postinstall": "yarn cp:utils"
   },
   "eslintConfig": {
     "extends": [
